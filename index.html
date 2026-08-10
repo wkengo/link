@@ -68,41 +68,37 @@
       <section class="recent" id="recent" hidden><div class="recent-title">最近使ったリンク</div><div class="recent-list" id="recentList"></div></section>
     </div>
     <div class="filters" id="filters">
-      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（32）</span></button>
+      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（43）</span></button>
       <button class="filter-btn" type="button" data-filter="__favorites__">★ お気に入り<span class="count" id="favoriteCount">（0）</span></button>
       <button class="filter-btn" type="button" data-filter="よく使う">よく使う<span class="count">（6）</span></button>
+      <button class="filter-btn" type="button" data-filter="銀行・株">銀行・株<span class="count">（5）</span></button>
       <button class="filter-btn" type="button" data-filter="Notion">Notion<span class="count">（6）</span></button>
-      <button class="filter-btn" type="button" data-filter="稀に便利">稀に便利<span class="count">（7）</span></button>
       <button class="filter-btn" type="button" data-filter="ショッピング">ショッピング<span class="count">（6）</span></button>
-      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（3）</span></button>
+      <button class="filter-btn" type="button" data-filter="稀に便利">稀に便利<span class="count">（11）</span></button>
+      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（4）</span></button>
       <button class="filter-btn" type="button" data-filter="その他">その他<span class="count">（4）</span></button>
+      <button class="filter-btn" type="button" data-filter="勉強">勉強<span class="count">（1）</span></button>
       <span class="result-count" id="resultCount"></span>
     </div>
     <section class="category-section" data-section-category="よく使う">
       <h2>よく使う</h2>
       <div class="grid">
-        <div class="link-item" data-category="よく使う" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集\Links_HTML.xlsm" data-note="" data-type="file">
+        <div class="link-item" data-category="よく使う" data-title="Google" data-url="https://www.google.com/" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集\Links_HTML.xlsm">
-            <span class="link-title">リンク集Excel</span>
-          </button>
+          <a class="link-card web-link" href="https://www.google.com/" target="_blank" rel="noopener" title="https://www.google.com/">
+            <span class="link-title">Google</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="よく使う" data-title="OneDrive" data-url="https://onedrive.live.com/my" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://onedrive.live.com/my" target="_blank" rel="noopener" title="https://onedrive.live.com/my">
+            <span class="link-title">OneDrive</span>
+          </a>
         </div>
         <div class="link-item" data-category="よく使う" data-title="ChatGPT" data-url="https://chatgpt.com/" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://chatgpt.com/" target="_blank" rel="noopener" title="https://chatgpt.com/">
             <span class="link-title">ChatGPT</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="住信SBI" data-url="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" target="_blank" rel="noopener" title="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210">
-            <span class="link-title">住信SBI</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="SBI証券" data-url="https://login.sbisec.co.jp/login/entry?channel=sp-site" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://login.sbisec.co.jp/login/entry?channel=sp-site" target="_blank" rel="noopener" title="https://login.sbisec.co.jp/login/entry?channel=sp-site">
-            <span class="link-title">SBI証券</span>
           </a>
         </div>
         <div class="link-item" data-category="よく使う" data-title="LRS" data-url="https://live-results.swim.or.jp/" data-note="" data-type="web">
@@ -115,6 +111,48 @@
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://studio.youtube.com/channel/UC9yowUg8tVXRykGS81aFDdw?c=UC9yowUg8tVXRykGS81aFDdw" target="_blank" rel="noopener" title="https://studio.youtube.com/channel/UC9yowUg8tVXRykGS81aFDdw?c=UC9yowUg8tVXRykGS81aFDdw">
             <span class="link-title">YT Studio</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="よく使う" data-title="Google予定登録" data-url="https://script.google.com/macros/s/AKfycbwG5CIsKLKPidsPyrvu8FAQaqpvcxANDmCnG-o4dN_A8Dhd0aKSbyJ6skl1eCgx2gwt/exec" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://script.google.com/macros/s/AKfycbwG5CIsKLKPidsPyrvu8FAQaqpvcxANDmCnG-o4dN_A8Dhd0aKSbyJ6skl1eCgx2gwt/exec" target="_blank" rel="noopener" title="https://script.google.com/macros/s/AKfycbwG5CIsKLKPidsPyrvu8FAQaqpvcxANDmCnG-o4dN_A8Dhd0aKSbyJ6skl1eCgx2gwt/exec">
+            <span class="link-title">Google予定登録</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <section class="category-section" data-section-category="銀行・株">
+      <h2>銀行・株</h2>
+      <div class="grid">
+        <div class="link-item" data-category="銀行・株" data-title="住信SBI" data-url="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" target="_blank" rel="noopener" title="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210">
+            <span class="link-title">住信SBI</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="銀行・株" data-title="SBI新生銀行" data-url="https://bk.web.sbishinseibank.co.jp/SFC/apps/services/www/SFC/desktopbrowser/default/login?mode=1" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://bk.web.sbishinseibank.co.jp/SFC/apps/services/www/SFC/desktopbrowser/default/login?mode=1" target="_blank" rel="noopener" title="https://bk.web.sbishinseibank.co.jp/SFC/apps/services/www/SFC/desktopbrowser/default/login?mode=1">
+            <span class="link-title">SBI新生銀行</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="銀行・株" data-title="SBI証券" data-url="https://login.sbisec.co.jp/login/entry?channel=sp-site" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://login.sbisec.co.jp/login/entry?channel=sp-site" target="_blank" rel="noopener" title="https://login.sbisec.co.jp/login/entry?channel=sp-site">
+            <span class="link-title">SBI証券</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="銀行・株" data-title="マネックス証券" data-url="https://www.monex.co.jp/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://www.monex.co.jp/" target="_blank" rel="noopener" title="https://www.monex.co.jp/">
+            <span class="link-title">マネックス証券</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="銀行・株" data-title="Y!ファイナンス" data-url="https://finance.yahoo.co.jp/portfolio/detail?portfolioId=1" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://finance.yahoo.co.jp/portfolio/detail?portfolioId=1" target="_blank" rel="noopener" title="https://finance.yahoo.co.jp/portfolio/detail?portfolioId=1">
+            <span class="link-title">Y!ファイナンス</span>
           </a>
         </div>
 
@@ -157,6 +195,48 @@
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://app.notion.com/p/wkengo/google-gmail-3780508e7ccd4214afc14f27ce2804c1" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/google-gmail-3780508e7ccd4214afc14f27ce2804c1">
             <span class="link-title">ユーザー登録_俊雄睦子</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <section class="category-section" data-section-category="ショッピング">
+      <h2>ショッピング</h2>
+      <div class="grid">
+        <div class="link-item" data-category="ショッピング" data-title="カテエネ" data-url="https://katene.chuden.jp/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://katene.chuden.jp/" target="_blank" rel="noopener" title="https://katene.chuden.jp/">
+            <span class="link-title">カテエネ</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="ショッピング" data-title="Amazon" data-url="https://www.amazon.co.jp/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://www.amazon.co.jp/" target="_blank" rel="noopener" title="https://www.amazon.co.jp/">
+            <span class="link-title">Amazon</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="ショッピング" data-title="楽天市場" data-url="https://www.rakuten.co.jp/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://www.rakuten.co.jp/" target="_blank" rel="noopener" title="https://www.rakuten.co.jp/">
+            <span class="link-title">楽天市場</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="ショッピング" data-title="Yahooショッピング" data-url="https://shopping.yahoo.co.jp/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://shopping.yahoo.co.jp/" target="_blank" rel="noopener" title="https://shopping.yahoo.co.jp/">
+            <span class="link-title">Yahooショッピング</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="ショッピング" data-title="価格コム" data-url="https://kakaku.com/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://kakaku.com/" target="_blank" rel="noopener" title="https://kakaku.com/">
+            <span class="link-title">価格コム</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="ショッピング" data-title="サクラチェッカー" data-url="https://sakura-checker.jp/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://sakura-checker.jp/" target="_blank" rel="noopener" title="https://sakura-checker.jp/">
+            <span class="link-title">サクラチェッカー</span>
           </a>
         </div>
 
@@ -207,46 +287,28 @@
             <span class="link-title">政府統計の総合窓口</span>
           </a>
         </div>
-
-      </div>
-    </section>
-    <section class="category-section" data-section-category="ショッピング">
-      <h2>ショッピング</h2>
-      <div class="grid">
-        <div class="link-item" data-category="ショッピング" data-title="カテエネ" data-url="https://katene.chuden.jp/" data-note="" data-type="web">
+        <div class="link-item" data-category="稀に便利" data-title="Googleスピードテスト" data-url="https://www.google.co.jp/search?q=speedtest+Google&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=ja-jp" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://katene.chuden.jp/" target="_blank" rel="noopener" title="https://katene.chuden.jp/">
-            <span class="link-title">カテエネ</span>
+          <a class="link-card web-link" href="https://www.google.co.jp/search?q=speedtest+Google&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=ja-jp" target="_blank" rel="noopener" title="https://www.google.co.jp/search?q=speedtest+Google&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=ja-jp">
+            <span class="link-title">Googleスピードテスト</span>
           </a>
         </div>
-        <div class="link-item" data-category="ショッピング" data-title="Amazon" data-url="https://www.amazon.co.jp/" data-note="" data-type="web">
+        <div class="link-item" data-category="稀に便利" data-title="Messanger" data-url="https://www.messenger.com/t/100001611139671" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.amazon.co.jp/" target="_blank" rel="noopener" title="https://www.amazon.co.jp/">
-            <span class="link-title">Amazon</span>
+          <a class="link-card web-link" href="https://www.messenger.com/t/100001611139671" target="_blank" rel="noopener" title="https://www.messenger.com/t/100001611139671">
+            <span class="link-title">Messanger</span>
           </a>
         </div>
-        <div class="link-item" data-category="ショッピング" data-title="楽天市場" data-url="https://www.rakuten.co.jp/" data-note="" data-type="web">
+        <div class="link-item" data-category="稀に便利" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集\Links_HTML.xlsm" data-note="" data-type="file">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.rakuten.co.jp/" target="_blank" rel="noopener" title="https://www.rakuten.co.jp/">
-            <span class="link-title">楽天市場</span>
-          </a>
+          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集\Links_HTML.xlsm">
+            <span class="link-title">リンク集Excel</span>
+          </button>
         </div>
-        <div class="link-item" data-category="ショッピング" data-title="Yahooショッピング" data-url="https://shopping.yahoo.co.jp/" data-note="" data-type="web">
+        <div class="link-item" data-category="稀に便利" data-title="クラウドサイン" data-url="https://www.cloudsign.jp/dashboard" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://shopping.yahoo.co.jp/" target="_blank" rel="noopener" title="https://shopping.yahoo.co.jp/">
-            <span class="link-title">Yahooショッピング</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="価格コム" data-url="https://kakaku.com/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://kakaku.com/" target="_blank" rel="noopener" title="https://kakaku.com/">
-            <span class="link-title">価格コム</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="サクラチェッカー" data-url="https://sakura-checker.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://sakura-checker.jp/" target="_blank" rel="noopener" title="https://sakura-checker.jp/">
-            <span class="link-title">サクラチェッカー</span>
+          <a class="link-card web-link" href="https://www.cloudsign.jp/dashboard" target="_blank" rel="noopener" title="https://www.cloudsign.jp/dashboard">
+            <span class="link-title">クラウドサイン</span>
           </a>
         </div>
 
@@ -271,6 +333,12 @@
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://wkengo.github.io/drug-guide/" target="_blank" rel="noopener" title="https://wkengo.github.io/drug-guide/">
             <span class="link-title">薬剤業務ナビ</span>
+          </a>
+        </div>
+        <div class="link-item" data-category="GitHub Pages" data-title="リンク集" data-url="https://wkengo.github.io/link/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://wkengo.github.io/link/" target="_blank" rel="noopener" title="https://wkengo.github.io/link/">
+            <span class="link-title">リンク集</span>
           </a>
         </div>
 
@@ -301,6 +369,18 @@
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://toku-p.earth-car.com/parking-search/34.74233216269858-137.74895058203643-16" target="_blank" rel="noopener" title="https://toku-p.earth-car.com/parking-search/34.74233216269858-137.74895058203643-16">
             <span class="link-title">特P</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <section class="category-section" data-section-category="勉強">
+      <h2>勉強</h2>
+      <div class="grid">
+        <div class="link-item" data-category="勉強" data-title="ゼロから始めるPython" data-url="https://news.mynavi.jp/techplus/article/zeropython-16/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://news.mynavi.jp/techplus/article/zeropython-16/" target="_blank" rel="noopener" title="https://news.mynavi.jp/techplus/article/zeropython-16/">
+            <span class="link-title">ゼロから始めるPython</span>
           </a>
         </div>
 
