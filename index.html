@@ -72,14 +72,14 @@
       <section class="recent" id="recent" hidden><div class="recent-title">最近使ったリンク</div><div class="recent-list" id="recentList"></div></section>
     </div>
     <div class="filters" id="filters">
-      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（48）</span></button>
+      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（49）</span></button>
       <button class="filter-btn" type="button" data-filter="__favorites__">★ お気に入り<span class="count" id="favoriteCount">（0）</span></button>
       <button class="filter-btn" type="button" data-filter="よく使う">よく使う<span class="count">（6）</span></button>
       <button class="filter-btn" type="button" data-filter="銀行・株">銀行・株<span class="count">（5）</span></button>
       <button class="filter-btn" type="button" data-filter="Notion">Notion<span class="count">（6）</span></button>
       <button class="filter-btn" type="button" data-filter="ショッピング">ショッピング<span class="count">（6）</span></button>
       <button class="filter-btn" type="button" data-filter="稀に便利">稀に便利<span class="count">（12）</span></button>
-      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（9）</span></button>
+      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（10）</span></button>
       <button class="filter-btn" type="button" data-filter="その他">その他<span class="count">（3）</span></button>
       <button class="filter-btn" type="button" data-filter="勉強">勉強<span class="count">（1）</span></button>
       <span class="result-count" id="resultCount"></span>
@@ -352,6 +352,12 @@
             <span class="link-title">リンク集</span>
           </a>
         </div>
+        <div class="link-item" data-category="GitHub Pages" data-title="リンク集シンプル" data-url="https://wkengo.github.io/link_simple/" data-note="" data-type="web">
+          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
+          <a class="link-card web-link" href="https://wkengo.github.io/link_simple/" target="_blank" rel="noopener" title="https://wkengo.github.io/link_simple/">
+            <span class="link-title">リンク集シンプル</span>
+          </a>
+        </div>
         <div class="link-item" data-category="GitHub Pages" data-title="リンク集_GAS版" data-url="https://script.google.com/macros/s/AKfycbzMIl3MqarJwNTq7Pp-5GZddiqzU4C9hr9kf-bTVVBtlzv7mmpQd-DyJ3-SZ4d0GwN2sg/exec" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://script.google.com/macros/s/AKfycbzMIl3MqarJwNTq7Pp-5GZddiqzU4C9hr9kf-bTVVBtlzv7mmpQd-DyJ3-SZ4d0GwN2sg/exec" target="_blank" rel="noopener" title="https://script.google.com/macros/s/AKfycbzMIl3MqarJwNTq7Pp-5GZddiqzU4C9hr9kf-bTVVBtlzv7mmpQd-DyJ3-SZ4d0GwN2sg/exec">
@@ -428,7 +434,7 @@
   <script>
     (function(){
       'use strict';
-      var FAV_KEY='workLinksFavoritesV1',RECENT_KEY='workLinksRecentV1',activeFilter='__all__',activeType='all',toastTimer;
+      var FAV_KEY='workLinksFavoritesV1',RECENT_KEY='workLinksRecentV1',activeFilter='__all__',activeType='all',toastTimer,isIPhone=/iPhone/i.test(navigator.userAgent);
       var items=Array.from(document.querySelectorAll('.link-item')),q=document.getElementById('q');
       function readStore(key){try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];}}
       function writeStore(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch(e){}}
@@ -442,7 +448,7 @@
       function toggleFavorite(item){var f=favorites(),key=keyOf(item),index=f.indexOf(key);if(index>=0){f.splice(index,1);}else{f.push(key);}writeStore(FAV_KEY,f);refreshFavorites();applyFilters();}
       function trackRecent(item){var list=readStore(RECENT_KEY),key=keyOf(item),index=list.indexOf(key);if(index>=0){list.splice(index,1);}list.unshift(key);writeStore(RECENT_KEY,list.slice(0,6));renderRecent();}
       function activateItem(item){trackRecent(item);if(item.querySelector('.file-copy')){copyText(item.dataset.url).then(function(){showToast('クリップボードにコピーしました。Windowsキー＋Rを押して貼り付け、Enterしてください。',2000);}).catch(function(){showToast('コピーできませんでした。Excelからパスをコピーしてください。',2500);});}else{window.open(item.dataset.url,'_blank','noopener');}}
-      function renderRecent(){var area=document.getElementById('recent'),box=document.getElementById('recentList'),keys=readStore(RECENT_KEY);box.innerHTML='';keys.forEach(function(key){var item=items.find(function(x){return keyOf(x)===key;});if(!item){return;}var b=document.createElement('button');b.type='button';b.className='recent-chip';b.textContent=item.dataset.title;b.title=item.dataset.note||item.dataset.url;b.addEventListener('click',function(){activateItem(item);});box.appendChild(b);});area.hidden=!box.children.length;}
+      function renderRecent(){var area=document.getElementById('recent'),box=document.getElementById('recentList'),keys=readStore(RECENT_KEY);if(isIPhone){box.innerHTML='';area.hidden=true;return;}box.innerHTML='';keys.forEach(function(key){var item=items.find(function(x){return keyOf(x)===key;});if(!item){return;}var b=document.createElement('button');b.type='button';b.className='recent-chip';b.textContent=item.dataset.title;b.title=item.dataset.note||item.dataset.url;b.addEventListener('click',function(){activateItem(item);});box.appendChild(b);});area.hidden=!box.children.length;}
       function setFilter(value){activeFilter=value;document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.filter===value);});applyFilters();}
       function applyFilters(){var keyword=q.value.trim().toLowerCase(),shown=0,f=favorites();items.forEach(function(item){var text=(item.dataset.title+' '+item.dataset.url+' '+item.dataset.category+' '+item.dataset.note).toLowerCase();var categoryOk=activeFilter==='__all__'||(activeFilter==='__favorites__'?f.indexOf(keyOf(item))>=0:item.dataset.category===activeFilter);var typeOk=activeType==='all'||item.dataset.type===activeType;var show=categoryOk&&typeOk&&text.indexOf(keyword)>=0;item.style.display=show?'':'none';if(show){shown++;}});document.querySelectorAll('.category-section').forEach(function(section){section.style.display=Array.from(section.querySelectorAll('.link-item')).some(function(item){return item.style.display!=='none';})?'':'none';});document.getElementById('resultCount').textContent='表示中：'+shown+'／'+items.length+'件';document.getElementById('empty').style.display=shown?'none':'block';}
       document.querySelectorAll('.filter-btn').forEach(function(b){b.addEventListener('click',function(){var value=this.dataset.filter;if(value===activeFilter&&value!=='__all__'){value='__all__';}setFilter(value);});});
