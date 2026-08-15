@@ -58,6 +58,11 @@
     @media(max-width:900px){.category-columns{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:650px){.hero-inner,.wrap{padding-left:12px;padding-right:12px}.toolbar{align-items:stretch;flex-wrap:wrap}.search{flex-basis:100%;max-width:none}.clear-btn,.type-btn{height:40px}.type-label{align-self:center}.category-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.category-columns.single-category .category-section{min-width:170px}.category-columns.single-category .grid{grid-auto-columns:170px}.recent{flex-basis:100%;align-items:flex-start;padding:7px 0 0;border-left:0;border-top:1px solid #c5cdd7}.recent-list{min-width:0}}
     @media(max-width:360px){.category-columns{grid-template-columns:1fr}}
+    .iphone .toolbar{display:flex;flex-wrap:nowrap;align-items:center;gap:7px}
+    .iphone .search{flex:1 1 auto;max-width:none;min-width:0}
+    .iphone .search input{height:40px;padding-left:10px;padding-right:10px;font-size:13px}
+    .iphone .clear-btn{flex:0 0 auto;min-width:62px;height:40px;padding:0 10px}
+    .iphone .type-label,.iphone .type-filter,.iphone .recent{display:none!important}
   </style>
 </head>
 <body>
@@ -395,9 +400,9 @@
             <span class="link-title">リンク集_GAS版</span>
           </a>
         </div>
-        <div class="link-item" data-category="その他" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集 - コピー\Links_HTML.xlsm" data-note="" data-type="file">
+        <div class="link-item" data-category="その他" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集\Links_HTML.xlsm" data-note="" data-type="file">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集 - コピー\Links_HTML.xlsm">
+          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集\Links_HTML.xlsm">
             <span class="link-title">リンク集Excel</span>
           </button>
         </div>
@@ -413,6 +418,7 @@
       'use strict';
       var FAV_KEY='workLinksFavoritesV1',RECENT_KEY='workLinksRecentV1',activeFilter='__all__',activeType='all',toastTimer,isIPhone=/iPhone/i.test(navigator.userAgent);
       var items=Array.from(document.querySelectorAll('.link-item')),q=document.getElementById('q');
+      if(isIPhone){document.body.classList.add('iphone');}
       function readStore(key){try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];}}
       function writeStore(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch(e){}}
       function keyOf(item){return item.dataset.url;}
@@ -430,19 +436,21 @@
         var keyword=q.value.trim().toLowerCase(),shown=0,f=favorites();
         var categoryColumns=document.getElementById('categoryColumns');
         var isSingleCategory=activeFilter!=='__all__'&&activeFilter!=='__favorites__';
+        var availableTotal=items.filter(function(item){return !isIPhone||item.dataset.type!=='file';}).length;
         categoryColumns.classList.toggle('single-category',isSingleCategory);
         items.forEach(function(item){
           var text=(item.dataset.title+' '+item.dataset.url+' '+item.dataset.category+' '+item.dataset.note).toLowerCase();
           var categoryOk=activeFilter==='__all__'||(activeFilter==='__favorites__'?f.indexOf(keyOf(item))>=0:item.dataset.category===activeFilter);
           var typeOk=activeType==='all'||item.dataset.type===activeType;
-          var show=categoryOk&&typeOk&&text.indexOf(keyword)>=0;
+          var deviceOk=!isIPhone||item.dataset.type!=='file';
+          var show=categoryOk&&typeOk&&deviceOk&&text.indexOf(keyword)>=0;
           item.style.display=show?'':'none';
           if(show){shown++;}
         });
         document.querySelectorAll('.category-section').forEach(function(section){
           section.style.display=Array.from(section.querySelectorAll('.link-item')).some(function(item){return item.style.display!=='none';})?'':'none';
         });
-        document.getElementById('resultCount').textContent='表示中：'+shown+'／'+items.length+'件';
+        document.getElementById('resultCount').textContent='表示中：'+shown+'／'+availableTotal+'件';
         document.getElementById('empty').style.display=shown?'none':'block';
       }
       document.querySelectorAll('.filter-btn').forEach(function(b){b.addEventListener('click',function(){var value=this.dataset.filter;if(value===activeFilter&&value!=='__all__'){value='__all__';}setFilter(value);});});
