@@ -9,7 +9,7 @@
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--text);font-family:'Segoe UI','Yu Gothic UI','Meiryo',sans-serif;line-height:1.5}
     .hero{background:linear-gradient(120deg,var(--navy),var(--navy2));color:#fff;border-bottom:3px solid var(--teal)}
-    .hero-inner,.wrap{max-width:1800px;margin:auto;padding-left:20px;padding-right:20px}
+    .hero-inner,.wrap{max-width:1900px;margin:auto;padding-left:20px;padding-right:20px}
     .hero-inner{padding-top:16px;padding-bottom:16px}
     h1{margin:0;font-size:25px;letter-spacing:.05em;font-weight:650}
     .wrap{padding-top:18px;padding-bottom:40px}
@@ -36,9 +36,10 @@
     .recent-list{display:flex;gap:7px;flex-wrap:wrap}
     .recent-chip{border:1px solid #c9d2dc;border-radius:6px;background:#fff;color:#314052;padding:6px 9px;font-size:12px;cursor:pointer;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .recent-chip:hover{border-color:var(--teal);color:var(--teal)}
-    .category-section{margin-top:13px}
-    .category-section h2{font-size:14px;color:#172b46;font-weight:800;margin:6px 0 7px;padding:5px 10px;background:#dce5ef;border-left:5px solid var(--navy);border-radius:0 5px 5px 0;letter-spacing:.03em}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px}
+    .category-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;align-items:start;margin-top:13px}
+    .category-section{min-width:0;margin:0}
+    .category-section h2{font-size:14px;color:#172b46;font-weight:800;margin:0 0 7px;padding:5px 10px;background:#dce5ef;border-left:5px solid var(--navy);border-radius:0 5px 5px 0;letter-spacing:.03em}
+    .grid{display:grid;grid-template-columns:1fr;gap:6px}
     .link-item{position:relative;min-width:0}
     .link-card{display:block;width:100%;min-height:38px;padding:8px 34px 8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);text-decoration:none;text-align:left;font:inherit;cursor:pointer;box-shadow:0 1px 2px rgba(21,34,56,.03);transition:.16s}
     .link-card:hover{transform:translateY(-2px);border-color:#aeb9c7;box-shadow:var(--shadow)}
@@ -50,7 +51,10 @@
     .empty{display:none;padding:40px 15px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #bcc6d1;border-radius:8px}
     .toast{position:fixed;left:50%;bottom:28px;z-index:9999;max-width:calc(100% - 32px);transform:translate(-50%,18px);padding:12px 18px;border-radius:8px;background:var(--navy);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.18s;text-align:center;font-size:13px}
     .toast.show{opacity:1;transform:translate(-50%,0)}
-    @media(max-width:650px){.hero-inner,.wrap{padding-left:12px;padding-right:12px}.toolbar{align-items:stretch;flex-wrap:wrap}.search{flex-basis:100%;max-width:none}.clear-btn,.type-btn{height:40px}.type-label{align-self:center}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.recent{flex-basis:100%;align-items:flex-start;padding:7px 0 0;border-left:0;border-top:1px solid #c5cdd7}.recent-list{min-width:0}}
+    @media(max-width:1200px){.category-columns{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    @media(max-width:900px){.category-columns{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:650px){.hero-inner,.wrap{padding-left:12px;padding-right:12px}.toolbar{align-items:stretch;flex-wrap:wrap}.search{flex-basis:100%;max-width:none}.clear-btn,.type-btn{height:40px}.type-label{align-self:center}.category-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.recent{flex-basis:100%;align-items:flex-start;padding:7px 0 0;border-left:0;border-top:1px solid #c5cdd7}.recent-list{min-width:0}}
+    @media(max-width:430px){.category-columns{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -68,21 +72,22 @@
       <section class="recent" id="recent" hidden><div class="recent-title">最近使ったリンク</div><div class="recent-list" id="recentList"></div></section>
     </div>
     <div class="filters" id="filters">
-      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（49）</span></button>
+      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（48）</span></button>
       <button class="filter-btn" type="button" data-filter="__favorites__">★ お気に入り<span class="count" id="favoriteCount">（0）</span></button>
       <button class="filter-btn" type="button" data-filter="よく使う">よく使う<span class="count">（6）</span></button>
       <button class="filter-btn" type="button" data-filter="銀行・株">銀行・株<span class="count">（5）</span></button>
       <button class="filter-btn" type="button" data-filter="Notion">Notion<span class="count">（6）</span></button>
       <button class="filter-btn" type="button" data-filter="ショッピング">ショッピング<span class="count">（6）</span></button>
       <button class="filter-btn" type="button" data-filter="稀に便利">稀に便利<span class="count">（12）</span></button>
-      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（10）</span></button>
+      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（9）</span></button>
       <button class="filter-btn" type="button" data-filter="その他">その他<span class="count">（3）</span></button>
       <button class="filter-btn" type="button" data-filter="勉強">勉強<span class="count">（1）</span></button>
       <span class="result-count" id="resultCount"></span>
     </div>
-    <section class="category-section" data-section-category="よく使う">
-      <h2>よく使う</h2>
-      <div class="grid">
+    <div class="category-columns">
+      <section class="category-section" data-section-category="よく使う">
+        <h2>よく使う</h2>
+        <div class="grid">
         <div class="link-item" data-category="よく使う" data-title="Google" data-url="https://www.google.com/" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://www.google.com/" target="_blank" rel="noopener" title="https://www.google.com/">
@@ -120,11 +125,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="銀行・株">
-      <h2>銀行・株</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="銀行・株">
+        <h2>銀行・株</h2>
+        <div class="grid">
         <div class="link-item" data-category="銀行・株" data-title="住信SBI" data-url="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" target="_blank" rel="noopener" title="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210">
@@ -156,11 +161,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="Notion">
-      <h2>Notion</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="Notion">
+        <h2>Notion</h2>
+        <div class="grid">
         <div class="link-item" data-category="Notion" data-title="Notion" data-url="https://app.notion.com/p/wkengo/bf23c747dadd4d1bac8ffd99e4c9f66e?v=8244a47f75bb4ba491ea7cc900d55f29" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://app.notion.com/p/wkengo/bf23c747dadd4d1bac8ffd99e4c9f66e?v=8244a47f75bb4ba491ea7cc900d55f29" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/bf23c747dadd4d1bac8ffd99e4c9f66e?v=8244a47f75bb4ba491ea7cc900d55f29">
@@ -198,11 +203,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="ショッピング">
-      <h2>ショッピング</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="ショッピング">
+        <h2>ショッピング</h2>
+        <div class="grid">
         <div class="link-item" data-category="ショッピング" data-title="カテエネ" data-url="https://katene.chuden.jp/" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://katene.chuden.jp/" target="_blank" rel="noopener" title="https://katene.chuden.jp/">
@@ -240,11 +245,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="稀に便利">
-      <h2>稀に便利</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="稀に便利">
+        <h2>稀に便利</h2>
+        <div class="grid">
         <div class="link-item" data-category="稀に便利" data-title="メンテ対象一覧" data-url="https://sites.google.com/view/goto-mente/home" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://sites.google.com/view/goto-mente/home" target="_blank" rel="noopener" title="https://sites.google.com/view/goto-mente/home">
@@ -299,9 +304,9 @@
             <span class="link-title">Messanger</span>
           </a>
         </div>
-        <div class="link-item" data-category="稀に便利" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集\Links_HTML.xlsm" data-note="" data-type="file">
+        <div class="link-item" data-category="稀に便利" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集 - コピー\Links_HTML.xlsm" data-note="" data-type="file">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集\Links_HTML.xlsm">
+          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集 - コピー\Links_HTML.xlsm">
             <span class="link-title">リンク集Excel</span>
           </button>
         </div>
@@ -318,11 +323,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="GitHub Pages">
-      <h2>GitHub Pages</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="GitHub Pages">
+        <h2>GitHub Pages</h2>
+        <div class="grid">
         <div class="link-item" data-category="GitHub Pages" data-title="GitHub Pages" data-url="https://github.com/" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://github.com/" target="_blank" rel="noopener" title="https://github.com/">
@@ -339,12 +344,6 @@
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://wkengo.github.io/copy/" target="_blank" rel="noopener" title="https://wkengo.github.io/copy/">
             <span class="link-title">コピーボタン</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="時差一覧" data-url="https://wkengo.github.io/jisa/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/jisa/" target="_blank" rel="noopener" title="https://wkengo.github.io/jisa/">
-            <span class="link-title">時差一覧</span>
           </a>
         </div>
         <div class="link-item" data-category="GitHub Pages" data-title="リンク集" data-url="https://wkengo.github.io/link/" data-note="" data-type="web">
@@ -384,11 +383,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="その他">
-      <h2>その他</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="その他">
+        <h2>その他</h2>
+        <div class="grid">
         <div class="link-item" data-category="その他" data-title="VS Code" data-url="https://vscode.dev/?vscode-lang=ja" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://vscode.dev/?vscode-lang=ja" target="_blank" rel="noopener" title="https://vscode.dev/?vscode-lang=ja">
@@ -408,11 +407,11 @@
           </a>
         </div>
 
-      </div>
-    </section>
-    <section class="category-section" data-section-category="勉強">
-      <h2>勉強</h2>
-      <div class="grid">
+        </div>
+      </section>
+      <section class="category-section" data-section-category="勉強">
+        <h2>勉強</h2>
+        <div class="grid">
         <div class="link-item" data-category="勉強" data-title="ゼロから始めるPython" data-url="https://news.mynavi.jp/techplus/article/zeropython-16/" data-note="" data-type="web">
           <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
           <a class="link-card web-link" href="https://news.mynavi.jp/techplus/article/zeropython-16/" target="_blank" rel="noopener" title="https://news.mynavi.jp/techplus/article/zeropython-16/">
@@ -420,8 +419,9 @@
           </a>
         </div>
 
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
     <div class="empty" id="empty">該当するリンクがありません。</div>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
