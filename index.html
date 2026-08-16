@@ -83,62 +83,12 @@
       <section class="recent" id="recent" hidden><div class="recent-title">最近使ったリンク</div><div class="recent-list" id="recentList"></div></section>
     </div>
     <div class="filters" id="filters">
-      <button class="filter-btn active" type="button" data-filter="__all__">すべて<span class="count">（55）</span></button>
-      <button class="filter-btn" type="button" data-filter="__favorites__">★ お気に入り<span class="count" id="favoriteCount">（0）</span></button>
-      <button class="filter-btn" type="button" data-filter="よく使う">よく使う<span class="count">（7）</span></button>
-      <button class="filter-btn" type="button" data-filter="銀行・株">銀行・株<span class="count">（5）</span></button>
-      <button class="filter-btn" type="button" data-filter="Notion">Notion<span class="count">（6）</span></button>
-      <button class="filter-btn" type="button" data-filter="ショッピング">ショッピング<span class="count">（7）</span></button>
-      <button class="filter-btn" type="button" data-filter="GitHub Pages">GitHub Pages<span class="count">（8）</span></button>
-      <button class="filter-btn" type="button" data-filter="その他">その他<span class="count">（22）</span></button>
       <span class="result-count" id="resultCount"></span>
     </div>
-    <div class="category-columns" id="categoryColumns">
-      <section class="category-section" data-section-category="よく使う">
-        <h2>よく使う</h2>
-        <div class="grid">
-        <div class="link-item" data-category="よく使う" data-title="検索パレット" data-url="https://wkengo.github.io/seach/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/seach/" target="_blank" rel="noopener" title="https://wkengo.github.io/seach/">
-            <span class="link-title">検索パレット</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="ChatGPT" data-url="https://chatgpt.com/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://chatgpt.com/" target="_blank" rel="noopener" title="https://chatgpt.com/">
-            <span class="link-title">ChatGPT</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="LRS" data-url="https://live-results.swim.or.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://live-results.swim.or.jp/" target="_blank" rel="noopener" title="https://live-results.swim.or.jp/">
-            <span class="link-title">LRS</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="YT Studio" data-url="https://studio.youtube.com/channel/UC9yowUg8tVXRykGS81aFDdw?c=UC9yowUg8tVXRykGS81aFDdw" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://studio.youtube.com/channel/UC9yowUg8tVXRykGS81aFDdw?c=UC9yowUg8tVXRykGS81aFDdw" target="_blank" rel="noopener" title="https://studio.youtube.com/channel/UC9yowUg8tVXRykGS81aFDdw?c=UC9yowUg8tVXRykGS81aFDdw">
-            <span class="link-title">YT Studio</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="OneDrive" data-url="https://onedrive.live.com/my" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://onedrive.live.com/my" target="_blank" rel="noopener" title="https://onedrive.live.com/my">
-            <span class="link-title">OneDrive</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="box" data-url="https://app.box.com/s/lgaju8qjgrhqupg6gmf6h22dcllr1sh6" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.box.com/s/lgaju8qjgrhqupg6gmf6h22dcllr1sh6" target="_blank" rel="noopener" title="https://app.box.com/s/lgaju8qjgrhqupg6gmf6h22dcllr1sh6">
-            <span class="link-title">box</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="よく使う" data-title="S-net" data-url="https://www.sana-net.jp/snet/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.sana-net.jp/snet/" target="_blank" rel="noopener" title="https://www.sana-net.jp/snet/">
-            <span class="link-title">S-net</span>
-          </a>
-        </div>
+    <div class="category-columns" id="categoryColumns"></div>
+    <div class="empty" id="empty">該当するリンクがありません。</div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script>
     (function(){
       'use strict';
@@ -157,465 +107,53 @@
       function refreshFavorites(){var f=favorites();items.forEach(function(item){var on=f.indexOf(keyOf(item))>=0,b=item.querySelector('.favorite-btn');b.classList.toggle('on',on);b.textContent=on?'★':'☆';b.title=on?'お気に入りから解除':'お気に入りに追加';b.setAttribute('aria-label',b.title);});var count=document.getElementById('favoriteCount');if(count){count.textContent='（'+f.length+'）';}}
       function toggleFavorite(item){var f=favorites(),key=keyOf(item),index=f.indexOf(key);if(index>=0){f.splice(index,1);}else{f.push(key);}writeStore(FAV_KEY,f);refreshFavorites();applyFilters();}
       function trackRecent(item){var list=readStore(RECENT_KEY),key=keyOf(item),index=list.indexOf(key);if(index>=0){list.splice(index,1);}list.unshift(key);writeStore(RECENT_KEY,list.slice(0,6));renderRecent();}
-      function activateItem(item){trackRecent(item);if(item.querySelector('.file-copy')){copyText(item.dataset.url).then(function(){showToast('クリップボードにコピーしました。Windowsキー＋Rを押して貼り付け、Enterしてください。',2000);}).catch(function(){showToast('コピーできませんでした。スプレッドシートからパスをコピーしてください。',2500);});}else{window.open(item.dataset.url,'_blank','noopener');}}
+      function activateItem(item){trackRecent(item);if(item.dataset.type==='file'){copyText(item.dataset.url).then(function(){showToast('クリップボードにコピーしました。Windowsキー＋Rを押して貼り付け、Enterしてください。',2000);}).catch(function(){showToast('コピーできませんでした。スプレッドシートからパスをコピーしてください。',2500);});}else{window.open(item.dataset.url,'_blank','noopener');}}
       function renderRecent(){var area=document.getElementById('recent'),box=document.getElementById('recentList'),keys=readStore(RECENT_KEY);if(isIPhone){box.innerHTML='';area.hidden=true;return;}box.innerHTML='';keys.forEach(function(key){var item=items.find(function(x){return keyOf(x)===key;});if(!item){return;}var b=document.createElement('button');b.type='button';b.className='recent-chip';b.textContent=item.dataset.title;b.title=item.dataset.note||item.dataset.url;b.onclick=function(){activateItem(item);};box.appendChild(b);});area.hidden=!box.children.length;}
       function setFilter(value){activeFilter=value;document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.filter===value);});applyFilters();}
 
       function applyFilters(){
-        var keyword=q.value.trim().toLowerCase(),shown=0,f=favorites();
-        var categoryColumns=document.getElementById('categoryColumns');
-        var isSingleCategory=activeFilter!=='__all__'&&activeFilter!=='__favorites__';
-        var availableTotal=items.filter(function(item){return !isIPhone||item.dataset.type!=='file';}).length;
-        categoryColumns.classList.toggle('single-category',isSingleCategory);
-        items.forEach(function(item){
-          var text=(item.dataset.title+' '+item.dataset.url+' '+item.dataset.category+' '+item.dataset.note).toLowerCase();
-          var categoryOk=activeFilter==='__all__'||(activeFilter==='__favorites__'?f.indexOf(keyOf(item))>=0:item.dataset.category===activeFilter);
-          var typeOk=activeType==='all'||item.dataset.type===activeType;
-          var deviceOk=!isIPhone||item.dataset.type!=='file';
-          var show=categoryOk&&typeOk&&deviceOk&&text.indexOf(keyword)>=0;
-          item.style.display=show?'':'none';
-          if(show){shown++;}
-        });
+        var keyword=q.value.trim().toLowerCase(),shown=0,f=favorites(),columns=document.getElementById('categoryColumns');
+        var single=activeFilter!=='__all__'&&activeFilter!=='__favorites__';
+        var total=items.filter(function(item){return !isIPhone||item.dataset.type!=='file';}).length;
+        columns.classList.toggle('single-category',single);
+        items.forEach(function(item){var text=(item.dataset.title+' '+item.dataset.url+' '+item.dataset.category+' '+item.dataset.note).toLowerCase();var categoryOk=activeFilter==='__all__'||(activeFilter==='__favorites__'?f.indexOf(keyOf(item))>=0:item.dataset.category===activeFilter);var typeOk=activeType==='all'||item.dataset.type===activeType;var deviceOk=!isIPhone||item.dataset.type!=='file';var show=categoryOk&&typeOk&&deviceOk&&text.indexOf(keyword)>=0;item.style.display=show?'':'none';if(show){shown++;}});
         document.querySelectorAll('.category-section').forEach(function(section){section.style.display=Array.from(section.querySelectorAll('.link-item')).some(function(item){return item.style.display!=='none';})?'':'none';});
-        document.getElementById('resultCount').textContent='表示中：'+shown+'／'+availableTotal+'件';
-        document.getElementById('empty').style.display=shown?'none':'block';
+        document.getElementById('resultCount').textContent='表示中：'+shown+'／'+total+'件';
+        var empty=document.getElementById('empty');empty.textContent='該当するリンクがありません。';empty.style.display=shown?'none':'block';
       }
 
-      function parseCsv(text){
-        var rows=[],row=[],value='',quoted=false;
-        for(var i=0;i<text.length;i++){var ch=text[i];if(quoted){if(ch==='"'&&text[i+1]==='"'){value+='"';i++;}else if(ch==='"'){quoted=false;}else{value+=ch;}}else if(ch==='"'){quoted=true;}else if(ch===','){row.push(value);value='';}else if(ch==='\n'){row.push(value);rows.push(row);row=[];value='';}else if(ch!=='\r'){value+=ch;}}
-        if(value!==''||row.length){row.push(value);rows.push(row);}return rows;
-      }
+      function parseCsv(text){var rows=[],row=[],value='',quoted=false;for(var i=0;i<text.length;i++){var ch=text[i];if(quoted){if(ch==='"'&&text[i+1]==='"'){value+='"';i++;}else if(ch==='"'){quoted=false;}else{value+=ch;}}else if(ch==='"'){quoted=true;}else if(ch===','){row.push(value);value='';}else if(ch==='\n'){row.push(value);rows.push(row);row=[];value='';}else if(ch!=='\r'){value+=ch;}}if(value!==''||row.length){row.push(value);rows.push(row);}return rows;}
 
       function rowsToLinks(rows){
-        if(!rows.length){return [];}var headers={};
-        rows[0].forEach(function(header,index){headers[String(header||'').replace(/^\uFEFF/,'').trim()]=index;});
-        if(headers['表示文字列']===undefined||headers['URL']===undefined){throw new Error('見出しが不足しています。');}
+        if(!rows.length){return [];}var headers={};rows[0].forEach(function(header,index){headers[String(header||'').replace(/^\uFEFF/,'').trim()]=index;});
+        if(headers['表示文字列']===undefined||headers['URL']===undefined){throw new Error('1行目に「表示文字列」と「URL」が必要です。');}
         function cell(row,name){var index=headers[name];return index===undefined||row[index]===undefined?'':String(row[index]).trim();}
-        return rows.slice(1).map(function(row,index){
-          var title=cell(row,'表示文字列'),url=cell(row,'URL'),category=cell(row,'カテゴリ')||'未分類',note=cell(row,'備考');
-          var orderText=cell(row,'並び順'),typeText=cell(row,'種別').toLowerCase(),enabled=cell(row,'有効').toLowerCase();
-          if(!title||!url||['false','0','無効','いいえ','no','off'].indexOf(enabled)>=0){return null;}
-          return {title:title,url:url,category:category,note:note,order:orderText!==''&&!isNaN(Number(orderText))?Number(orderText):index+1,type:typeText==='file'||typeText==='ファイル'?'file':typeText==='web'?'web':/^https?:\/\//i.test(url)?'web':'file',row:index+2};
-        }).filter(Boolean).sort(function(a,b){return a.order-b.order||a.row-b.row;});
+        return rows.slice(1).map(function(row,index){var title=cell(row,'表示文字列'),url=cell(row,'URL'),category=cell(row,'カテゴリ')||'未分類',note=cell(row,'備考'),orderText=cell(row,'並び順'),typeText=cell(row,'種別').toLowerCase(),enabled=cell(row,'有効').toLowerCase();if(!title||!url||['false','0','無効','いいえ','no','off'].indexOf(enabled)>=0){return null;}return {title:title,url:url,category:category,note:note,order:orderText!==''&&!isNaN(Number(orderText))?Number(orderText):index+1,type:typeText==='file'||typeText==='ファイル'?'file':typeText==='web'?'web':/^https?:\/\//i.test(url)?'web':'file',row:index+2};}).filter(Boolean).sort(function(a,b){return a.order-b.order||a.row-b.row;});
       }
 
-      function makeFilter(value,label,count){
-        var b=document.createElement('button');b.className='filter-btn'+(activeFilter===value?' active':'');b.type='button';b.dataset.filter=value;
-        b.appendChild(document.createTextNode(label));var span=document.createElement('span');span.className='count';if(value==='__favorites__'){span.id='favoriteCount';}span.textContent='（'+count+'）';b.appendChild(span);
-        b.onclick=function(){var next=value===activeFilter&&value!=='__all__'?'__all__':value;setFilter(next);};return b;
-      }
-
-      function makeItem(link){
-        var item=document.createElement('div');item.className='link-item';item.dataset.category=link.category;item.dataset.title=link.title;item.dataset.url=link.url;item.dataset.note=link.note;item.dataset.type=link.type;
-        var fav=document.createElement('button');fav.className='favorite-btn';fav.type='button';fav.title='お気に入りに追加';fav.setAttribute('aria-label','お気に入りに追加');fav.textContent='☆';item.appendChild(fav);
-        var card=document.createElement(link.type==='file'?'button':'a');card.className='link-card '+(link.type==='file'?'file-copy':'web-link');card.title=link.note||link.url;
-        if(link.type==='file'){card.type='button';}else{card.href=link.url;card.target='_blank';card.rel='noopener';}
-        var title=document.createElement('span');title.className='link-title';title.textContent=link.title;card.appendChild(title);item.appendChild(card);return item;
-      }
+      function makeFilter(value,label,count){var b=document.createElement('button');b.className='filter-btn'+(activeFilter===value?' active':'');b.type='button';b.dataset.filter=value;b.appendChild(document.createTextNode(label));var span=document.createElement('span');span.className='count';if(value==='__favorites__'){span.id='favoriteCount';}span.textContent='（'+count+'）';b.appendChild(span);b.onclick=function(){setFilter(value===activeFilter&&value!=='__all__'?'__all__':value);};return b;}
+      function makeItem(link){var item=document.createElement('div');item.className='link-item';item.dataset.category=link.category;item.dataset.title=link.title;item.dataset.url=link.url;item.dataset.note=link.note;item.dataset.type=link.type;var fav=document.createElement('button');fav.className='favorite-btn';fav.type='button';fav.textContent='☆';item.appendChild(fav);var card=document.createElement(link.type==='file'?'button':'a');card.className='link-card '+(link.type==='file'?'file-copy':'web-link');card.title=link.note||link.url;if(link.type==='file'){card.type='button';}else{card.href=link.url;card.target='_blank';card.rel='noopener';}var title=document.createElement('span');title.className='link-title';title.textContent=link.title;card.appendChild(title);item.appendChild(card);return item;}
 
       function renderLinks(links){
         var filters=document.getElementById('filters'),columns=document.getElementById('categoryColumns'),counts={},categories=[];
         links.forEach(function(link){if(!counts[link.category]){counts[link.category]=0;categories.push(link.category);}counts[link.category]++;});
         if(activeFilter!=='__all__'&&activeFilter!=='__favorites__'&&!counts[activeFilter]){activeFilter='__all__';}
-        filters.innerHTML='';filters.appendChild(makeFilter('__all__','すべて',links.length));filters.appendChild(makeFilter('__favorites__','★ お気に入り',0));
-        categories.forEach(function(category){filters.appendChild(makeFilter(category,category,counts[category]));});
-        var result=document.createElement('span');result.className='result-count';result.id='resultCount';filters.appendChild(result);
+        filters.innerHTML='';filters.appendChild(makeFilter('__all__','すべて',links.length));filters.appendChild(makeFilter('__favorites__','★ お気に入り',0));categories.forEach(function(category){filters.appendChild(makeFilter(category,category,counts[category]));});var result=document.createElement('span');result.className='result-count';result.id='resultCount';filters.appendChild(result);
         columns.innerHTML='';categories.forEach(function(category){var section=document.createElement('section');section.className='category-section';section.dataset.sectionCategory=category;var h2=document.createElement('h2');h2.textContent=category;var grid=document.createElement('div');grid.className='grid';links.filter(function(link){return link.category===category;}).forEach(function(link){grid.appendChild(makeItem(link));});section.appendChild(h2);section.appendChild(grid);columns.appendChild(section);});
-        initialize();
-      }
-
-      function initialize(){
         items=Array.from(document.querySelectorAll('.link-item'));
-        document.querySelectorAll('.filter-btn').forEach(function(b){b.onclick=function(){var value=this.dataset.filter;if(value===activeFilter&&value!=='__all__'){value='__all__';}setFilter(value);};});
-        document.getElementById('clearBtn').onclick=function(){q.value='';activeType='all';document.querySelectorAll('.type-btn').forEach(function(b){b.classList.toggle('active',b.dataset.type==='all');});setFilter('__all__');q.focus();};
-        document.querySelectorAll('.type-btn').forEach(function(b){b.onclick=function(){var value=this.dataset.type;if(value===activeType&&value!=='all'){value='all';}activeType=value;document.querySelectorAll('.type-btn').forEach(function(x){x.classList.toggle('active',x.dataset.type===activeType);});applyFilters();};});
-        q.oninput=applyFilters;
-        items.forEach(function(item){item.querySelector('.favorite-btn').onclick=function(e){e.preventDefault();e.stopPropagation();toggleFavorite(item);};var file=item.querySelector('.file-copy');if(file){file.onclick=function(){activateItem(item);};}else{item.querySelector('.web-link').onclick=function(){trackRecent(item);};}});
+        items.forEach(function(item){item.querySelector('.favorite-btn').onclick=function(e){e.preventDefault();e.stopPropagation();toggleFavorite(item);};item.querySelector('.link-card').onclick=function(e){if(item.dataset.type==='file'){e.preventDefault();activateItem(item);}else{trackRecent(item);}};});
         refreshFavorites();renderRecent();applyFilters();
       }
 
-      function loadLinks(){
-        if(loading||location.protocol==='file:'){return;}loading=true;
-        fetch(CSV_URL+'&_='+Date.now(),{cache:'no-store'}).then(function(response){if(!response.ok){throw new Error('HTTP '+response.status);}return response.text();}).then(function(csv){renderLinks(rowsToLinks(parseCsv(csv)));loading=false;}).catch(function(){loading=false;showToast('スプレッドシートを取得できないため、HTML内のリンクを表示しています。',3000);});
-      }
+      function showLoadError(message){items=[];document.getElementById('filters').innerHTML='<span class="result-count" id="resultCount"></span>';document.getElementById('categoryColumns').innerHTML='';var empty=document.getElementById('empty');empty.textContent=message;empty.style.display='block';}
+      function loadLinks(){if(loading){return;}if(location.protocol==='file:'){showLoadError('GitHub Pages上で開いてください。');return;}loading=true;showLoadError('スプレッドシートから読み込んでいます。');fetch(CSV_URL+'&_='+Date.now(),{cache:'no-store'}).then(function(response){if(!response.ok){throw new Error('HTTP '+response.status);}return response.text();}).then(function(csv){renderLinks(rowsToLinks(parseCsv(csv)));loading=false;}).catch(function(){loading=false;showLoadError('スプレッドシートを取得できませんでした。');});}
 
-      initialize();
+      document.getElementById('clearBtn').onclick=function(){q.value='';activeType='all';document.querySelectorAll('.type-btn').forEach(function(b){b.classList.toggle('active',b.dataset.type==='all');});setFilter('__all__');q.focus();};
+      document.querySelectorAll('.type-btn').forEach(function(b){b.onclick=function(){var value=this.dataset.type;if(value===activeType&&value!=='all'){value='all';}activeType=value;document.querySelectorAll('.type-btn').forEach(function(x){x.classList.toggle('active',x.dataset.type===activeType);});applyFilters();};});
+      q.oninput=applyFilters;
       loadLinks();
       document.addEventListener('visibilitychange',function(){if(!document.hidden){loadLinks();}});
       setInterval(function(){if(!document.hidden){loadLinks();}},60000);
-    })();
-  </script>
-        </div>
-      </section>
-      <section class="category-section" data-section-category="銀行・株">
-        <h2>銀行・株</h2>
-        <div class="grid">
-        <div class="link-item" data-category="銀行・株" data-title="Y!ファイナンス" data-url="https://finance.yahoo.co.jp/portfolio/detail?portfolioId=1" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://finance.yahoo.co.jp/portfolio/detail?portfolioId=1" target="_blank" rel="noopener" title="https://finance.yahoo.co.jp/portfolio/detail?portfolioId=1">
-            <span class="link-title">Y!ファイナンス</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="銀行・株" data-title="住信SBI" data-url="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210" target="_blank" rel="noopener" title="https://www.netbk.co.jp/contents/pages/wpl010101/i010101CT/DI01010210">
-            <span class="link-title">住信SBI</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="銀行・株" data-title="SBI新生銀行" data-url="https://bk.web.sbishinseibank.co.jp/SFC/apps/services/www/SFC/desktopbrowser/default/login?mode=1" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://bk.web.sbishinseibank.co.jp/SFC/apps/services/www/SFC/desktopbrowser/default/login?mode=1" target="_blank" rel="noopener" title="https://bk.web.sbishinseibank.co.jp/SFC/apps/services/www/SFC/desktopbrowser/default/login?mode=1">
-            <span class="link-title">SBI新生銀行</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="銀行・株" data-title="SBI証券" data-url="https://login.sbisec.co.jp/login/entry?channel=sp-site" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://login.sbisec.co.jp/login/entry?channel=sp-site" target="_blank" rel="noopener" title="https://login.sbisec.co.jp/login/entry?channel=sp-site">
-            <span class="link-title">SBI証券</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="銀行・株" data-title="マネックス証券" data-url="https://www.monex.co.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.monex.co.jp/" target="_blank" rel="noopener" title="https://www.monex.co.jp/">
-            <span class="link-title">マネックス証券</span>
-          </a>
-        </div>
-
-        </div>
-      </section>
-      <section class="category-section" data-section-category="Notion">
-        <h2>Notion</h2>
-        <div class="grid">
-        <div class="link-item" data-category="Notion" data-title="Notion" data-url="https://app.notion.com/p/wkengo/bf23c747dadd4d1bac8ffd99e4c9f66e?v=8244a47f75bb4ba491ea7cc900d55f29" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.notion.com/p/wkengo/bf23c747dadd4d1bac8ffd99e4c9f66e?v=8244a47f75bb4ba491ea7cc900d55f29" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/bf23c747dadd4d1bac8ffd99e4c9f66e?v=8244a47f75bb4ba491ea7cc900d55f29">
-            <span class="link-title">Notion</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="Notion" data-title="貸家_広沢" data-url="https://app.notion.com/p/wkengo/260207_-300cc4488e118010b66cd4c7c22b0b16" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.notion.com/p/wkengo/260207_-300cc4488e118010b66cd4c7c22b0b16" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/260207_-300cc4488e118010b66cd4c7c22b0b16">
-            <span class="link-title">貸家_広沢</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="Notion" data-title="ユーザー登録" data-url="https://app.notion.com/p/wkengo/1d0cc4488e1180fab444e177e5d3293d?v=1d0cc4488e1180cda63f000c8807b9f5" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.notion.com/p/wkengo/1d0cc4488e1180fab444e177e5d3293d?v=1d0cc4488e1180cda63f000c8807b9f5" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/1d0cc4488e1180fab444e177e5d3293d?v=1d0cc4488e1180cda63f000c8807b9f5">
-            <span class="link-title">ユーザー登録</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="Notion" data-title="ユーザー登録_絢香" data-url="https://app.notion.com/p/wkengo/Google-Gmail-0dedf0671b3d4c1987a87a759bd840fd" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.notion.com/p/wkengo/Google-Gmail-0dedf0671b3d4c1987a87a759bd840fd" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/Google-Gmail-0dedf0671b3d4c1987a87a759bd840fd">
-            <span class="link-title">ユーザー登録_絢香</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="Notion" data-title="ユーザー登録_瑛太" data-url="https://app.notion.com/p/wkengo/1c2bf51574c749ff96fa7841f82553c2" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.notion.com/p/wkengo/1c2bf51574c749ff96fa7841f82553c2" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/1c2bf51574c749ff96fa7841f82553c2">
-            <span class="link-title">ユーザー登録_瑛太</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="Notion" data-title="ユーザー登録_俊雄睦子" data-url="https://app.notion.com/p/wkengo/google-gmail-3780508e7ccd4214afc14f27ce2804c1" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://app.notion.com/p/wkengo/google-gmail-3780508e7ccd4214afc14f27ce2804c1" target="_blank" rel="noopener" title="https://app.notion.com/p/wkengo/google-gmail-3780508e7ccd4214afc14f27ce2804c1">
-            <span class="link-title">ユーザー登録_俊雄睦子</span>
-          </a>
-        </div>
-
-        </div>
-      </section>
-      <section class="category-section" data-section-category="ショッピング">
-        <h2>ショッピング</h2>
-        <div class="grid">
-        <div class="link-item" data-category="ショッピング" data-title="カテエネ" data-url="https://katene.chuden.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://katene.chuden.jp/" target="_blank" rel="noopener" title="https://katene.chuden.jp/">
-            <span class="link-title">カテエネ</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="Amazon" data-url="https://www.amazon.co.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.amazon.co.jp/" target="_blank" rel="noopener" title="https://www.amazon.co.jp/">
-            <span class="link-title">Amazon</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="楽天市場" data-url="https://www.rakuten.co.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.rakuten.co.jp/" target="_blank" rel="noopener" title="https://www.rakuten.co.jp/">
-            <span class="link-title">楽天市場</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="Yahooショッピング" data-url="https://shopping.yahoo.co.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://shopping.yahoo.co.jp/" target="_blank" rel="noopener" title="https://shopping.yahoo.co.jp/">
-            <span class="link-title">Yahooショッピング</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="価格コム" data-url="https://kakaku.com/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://kakaku.com/" target="_blank" rel="noopener" title="https://kakaku.com/">
-            <span class="link-title">価格コム</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="サクラチェッカー" data-url="https://sakura-checker.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://sakura-checker.jp/" target="_blank" rel="noopener" title="https://sakura-checker.jp/">
-            <span class="link-title">サクラチェッカー</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="ショッピング" data-title="カテエネ" data-url="https://katene.chuden.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://katene.chuden.jp/" target="_blank" rel="noopener" title="https://katene.chuden.jp/">
-            <span class="link-title">カテエネ</span>
-          </a>
-        </div>
-
-        </div>
-      </section>
-      <section class="category-section" data-section-category="GitHub Pages">
-        <h2>GitHub Pages</h2>
-        <div class="grid">
-        <div class="link-item" data-category="GitHub Pages" data-title="GitHub Pages" data-url="https://github.com/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://github.com/" target="_blank" rel="noopener" title="https://github.com/">
-            <span class="link-title">GitHub Pages</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="コピーボタン" data-url="https://wkengo.github.io/copy/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/copy/" target="_blank" rel="noopener" title="https://wkengo.github.io/copy/">
-            <span class="link-title">コピーボタン</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="リンク集" data-url="https://wkengo.github.io/link/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/link/" target="_blank" rel="noopener" title="https://wkengo.github.io/link/">
-            <span class="link-title">リンク集</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="リンク集シンプル" data-url="https://wkengo.github.io/link_simple/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/link_simple/" target="_blank" rel="noopener" title="https://wkengo.github.io/link_simple/">
-            <span class="link-title">リンク集シンプル</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="Google予定登録" data-url="https://script.google.com/macros/s/AKfycbwG5CIsKLKPidsPyrvu8FAQaqpvcxANDmCnG-o4dN_A8Dhd0aKSbyJ6skl1eCgx2gwt/exec" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://script.google.com/macros/s/AKfycbwG5CIsKLKPidsPyrvu8FAQaqpvcxANDmCnG-o4dN_A8Dhd0aKSbyJ6skl1eCgx2gwt/exec" target="_blank" rel="noopener" title="https://script.google.com/macros/s/AKfycbwG5CIsKLKPidsPyrvu8FAQaqpvcxANDmCnG-o4dN_A8Dhd0aKSbyJ6skl1eCgx2gwt/exec">
-            <span class="link-title">Google予定登録</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="天気" data-url="https://wkengo.github.io/tenki/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/tenki/" target="_blank" rel="noopener" title="https://wkengo.github.io/tenki/">
-            <span class="link-title">天気</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="薬剤業務ナビ" data-url="https://wkengo.github.io/drug-guide/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/drug-guide/" target="_blank" rel="noopener" title="https://wkengo.github.io/drug-guide/">
-            <span class="link-title">薬剤業務ナビ</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="GitHub Pages" data-title="貴恵用リンク集" data-url="https://wkengo.github.io/link_takae/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://wkengo.github.io/link_takae/" target="_blank" rel="noopener" title="https://wkengo.github.io/link_takae/">
-            <span class="link-title">貴恵用リンク集</span>
-          </a>
-        </div>
-
-        </div>
-      </section>
-      <section class="category-section" data-section-category="その他">
-        <h2>その他</h2>
-        <div class="grid">
-        <div class="link-item" data-category="その他" data-title="メンテ対象一覧" data-url="https://sites.google.com/view/goto-mente/home" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://sites.google.com/view/goto-mente/home" target="_blank" rel="noopener" title="https://sites.google.com/view/goto-mente/home">
-            <span class="link-title">メンテ対象一覧</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="OnShape_3D" data-url="https://cad.onshape.com/documents?resourceType=resourceuserowner&amp;nodeId=695a8219297324761e05a167" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://cad.onshape.com/documents?resourceType=resourceuserowner&amp;nodeId=695a8219297324761e05a167" target="_blank" rel="noopener" title="https://cad.onshape.com/documents?resourceType=resourceuserowner&amp;nodeId=695a8219297324761e05a167">
-            <span class="link-title">OnShape_3D</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="QRコード" data-url="https://qr.quel.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://qr.quel.jp/" target="_blank" rel="noopener" title="https://qr.quel.jp/">
-            <span class="link-title">QRコード</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="祝日カレンダー" data-url="https://holidays-calendar.net/calendar/japan_calendar.html" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://holidays-calendar.net/calendar/japan_calendar.html" target="_blank" rel="noopener" title="https://holidays-calendar.net/calendar/japan_calendar.html">
-            <span class="link-title">祝日カレンダー</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="Synology NAS" data-url="https://192-168-1-188.wkengoggmail.direct.quickconnect.to:5001/#/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://192-168-1-188.wkengoggmail.direct.quickconnect.to:5001/#/" target="_blank" rel="noopener" title="https://192-168-1-188.wkengoggmail.direct.quickconnect.to:5001/#/">
-            <span class="link-title">Synology NAS</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="LEGIONサポート" data-url="https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/legion-series/legion-5-15ach6h/82ju/82ju00sbjp/pf33xwm5/downloads/automatic-driver-update" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/legion-series/legion-5-15ach6h/82ju/82ju00sbjp/pf33xwm5/downloads/automatic-driver-update" target="_blank" rel="noopener" title="https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/legion-series/legion-5-15ach6h/82ju/82ju00sbjp/pf33xwm5/downloads/automatic-driver-update">
-            <span class="link-title">LEGIONサポート</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="政府統計の総合窓口" data-url="https://www.e-stat.go.jp/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.e-stat.go.jp/" target="_blank" rel="noopener" title="https://www.e-stat.go.jp/">
-            <span class="link-title">政府統計の総合窓口</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="Googleスピードテスト" data-url="https://www.google.co.jp/search?q=speedtest+Google&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=ja-jp" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.google.co.jp/search?q=speedtest+Google&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=ja-jp" target="_blank" rel="noopener" title="https://www.google.co.jp/search?q=speedtest+Google&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=ja-jp">
-            <span class="link-title">Googleスピードテスト</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="Messanger" data-url="https://www.messenger.com/t/100001611139671" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.messenger.com/t/100001611139671" target="_blank" rel="noopener" title="https://www.messenger.com/t/100001611139671">
-            <span class="link-title">Messanger</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="クラウドサイン" data-url="https://www.cloudsign.jp/dashboard" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.cloudsign.jp/dashboard" target="_blank" rel="noopener" title="https://www.cloudsign.jp/dashboard">
-            <span class="link-title">クラウドサイン</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="浜松ライブカメラ" data-url="https://www.hamamatsu-dobokubousai.net/top.php" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.hamamatsu-dobokubousai.net/top.php" target="_blank" rel="noopener" title="https://www.hamamatsu-dobokubousai.net/top.php">
-            <span class="link-title">浜松ライブカメラ</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="VS Code" data-url="https://vscode.dev/?vscode-lang=ja" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://vscode.dev/?vscode-lang=ja" target="_blank" rel="noopener" title="https://vscode.dev/?vscode-lang=ja">
-            <span class="link-title">VS Code</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="パークダイレクト" data-url="https://www.park-direct.jp/search-list?keyword=%E7%8F%BE%E5%9C%A8%E5%9C%B0%E5%91%A8%E8%BE%BA&amp;latitude=34.74234183314171&amp;longitude=137.7488889920439" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.park-direct.jp/search-list?keyword=%E7%8F%BE%E5%9C%A8%E5%9C%B0%E5%91%A8%E8%BE%BA&amp;latitude=34.74234183314171&amp;longitude=137.7488889920439" target="_blank" rel="noopener" title="https://www.park-direct.jp/search-list?keyword=%E7%8F%BE%E5%9C%A8%E5%9C%B0%E5%91%A8%E8%BE%BA&amp;latitude=34.74234183314171&amp;longitude=137.7488889920439">
-            <span class="link-title">パークダイレクト</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="特P" data-url="https://toku-p.earth-car.com/parking-search/34.74233216269858-137.74895058203643-16" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://toku-p.earth-car.com/parking-search/34.74233216269858-137.74895058203643-16" target="_blank" rel="noopener" title="https://toku-p.earth-car.com/parking-search/34.74233216269858-137.74895058203643-16">
-            <span class="link-title">特P</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="ゼロから始めるPython" data-url="https://news.mynavi.jp/techplus/article/zeropython-16/" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://news.mynavi.jp/techplus/article/zeropython-16/" target="_blank" rel="noopener" title="https://news.mynavi.jp/techplus/article/zeropython-16/">
-            <span class="link-title">ゼロから始めるPython</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="リンク集_GAS版" data-url="https://script.google.com/macros/s/AKfycbzMIl3MqarJwNTq7Pp-5GZddiqzU4C9hr9kf-bTVVBtlzv7mmpQd-DyJ3-SZ4d0GwN2sg/exec" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://script.google.com/macros/s/AKfycbzMIl3MqarJwNTq7Pp-5GZddiqzU4C9hr9kf-bTVVBtlzv7mmpQd-DyJ3-SZ4d0GwN2sg/exec" target="_blank" rel="noopener" title="https://script.google.com/macros/s/AKfycbzMIl3MqarJwNTq7Pp-5GZddiqzU4C9hr9kf-bTVVBtlzv7mmpQd-DyJ3-SZ4d0GwN2sg/exec">
-            <span class="link-title">リンク集_GAS版</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="リンク集Excel" data-url="C:\日付順\260721_リンク集\Links_HTML.xlsm" data-note="" data-type="file">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <button class="link-card file-copy" type="button" title="C:\日付順\260721_リンク集\Links_HTML.xlsm">
-            <span class="link-title">リンク集Excel</span>
-          </button>
-        </div>
-        <div class="link-item" data-category="その他" data-title="浜松市防災マップ" data-url="https://www.city.hamamatsu.shizuoka.jp/bosai/bosai/map/index.html" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.city.hamamatsu.shizuoka.jp/bosai/bosai/map/index.html" target="_blank" rel="noopener" title="https://www.city.hamamatsu.shizuoka.jp/bosai/bosai/map/index.html">
-            <span class="link-title">浜松市防災マップ</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="浜松市休日・夜間医療" data-url="https://www.city.hamamatsu.shizuoka.jp/kenko/iryo/kyujitsu/index.html" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.city.hamamatsu.shizuoka.jp/kenko/iryo/kyujitsu/index.html" target="_blank" rel="noopener" title="https://www.city.hamamatsu.shizuoka.jp/kenko/iryo/kyujitsu/index.html">
-            <span class="link-title">浜松市休日・夜間医療</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="浜松市警報" data-url="https://www.data.jma.go.jp/multi/warn/warn_detail.html?code=220040&amp;lang=jp&amp;selected_code=2213002&amp;warning=all" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.data.jma.go.jp/multi/warn/warn_detail.html?code=220040&amp;lang=jp&amp;selected_code=2213002&amp;warning=all" target="_blank" rel="noopener" title="https://www.data.jma.go.jp/multi/warn/warn_detail.html?code=220040&amp;lang=jp&amp;selected_code=2213002&amp;warning=all">
-            <span class="link-title">浜松市警報</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="遠鉄バス時刻表" data-url="https://transfer-cloud.navitime.biz/entetsu?feature=timetable" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://transfer-cloud.navitime.biz/entetsu?feature=timetable" target="_blank" rel="noopener" title="https://transfer-cloud.navitime.biz/entetsu?feature=timetable">
-            <span class="link-title">遠鉄バス時刻表</span>
-          </a>
-        </div>
-        <div class="link-item" data-category="その他" data-title="浜松市ごみ分別" data-url="https://www.city.hamamatsu.shizuoka.jp/ippai/gomi/dashikata/dashikata/dashikata.html" data-note="" data-type="web">
-          <button class="favorite-btn" type="button" title="お気に入りに追加" aria-label="お気に入りに追加">☆</button>
-          <a class="link-card web-link" href="https://www.city.hamamatsu.shizuoka.jp/ippai/gomi/dashikata/dashikata/dashikata.html" target="_blank" rel="noopener" title="https://www.city.hamamatsu.shizuoka.jp/ippai/gomi/dashikata/dashikata/dashikata.html">
-            <span class="link-title">浜松市ごみ分別</span>
-          </a>
-        </div>
-
-        </div>
-      </section>
-    </div>
-    <div class="empty" id="empty">該当するリンクがありません。</div>
-  </main>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script>
-    (function(){
-      'use strict';
-      var FAV_KEY='workLinksFavoritesV1',RECENT_KEY='workLinksRecentV1',activeFilter='__all__',activeType='all',toastTimer,isIPhone=/iPhone/i.test(navigator.userAgent);
-      var items=Array.from(document.querySelectorAll('.link-item')),q=document.getElementById('q');
-      if(isIPhone){document.body.classList.add('iphone');}
-      function readStore(key){try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];}}
-      function writeStore(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch(e){}}
-      function keyOf(item){return item.dataset.url;}
-      function fallbackCopy(value){var area=document.createElement('textarea');area.value=value;area.setAttribute('readonly','');area.style.position='fixed';area.style.left='-9999px';document.body.appendChild(area);area.focus();area.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(area);return ok?Promise.resolve():Promise.reject(new Error('copy failed'));}
-      function copyText(value){if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(value).catch(function(){return fallbackCopy(value);});}return fallbackCopy(value);}
-      function showToast(message,duration){var el=document.getElementById('toast');clearTimeout(toastTimer);el.textContent=message;el.classList.add('show');toastTimer=setTimeout(function(){el.classList.remove('show');},duration||2200);}
-      function favorites(){var stored=readStore(FAV_KEY),valid=items.map(keyOf),cleaned=stored.filter(function(key,index){return valid.indexOf(key)>=0&&stored.indexOf(key)===index;});if(cleaned.length!==stored.length){writeStore(FAV_KEY,cleaned);}return cleaned;}
-      function refreshFavorites(){var f=favorites();items.forEach(function(item){var on=f.indexOf(keyOf(item))>=0,b=item.querySelector('.favorite-btn');b.classList.toggle('on',on);b.textContent=on?'★':'☆';b.title=on?'お気に入りから解除':'お気に入りに追加';});document.getElementById('favoriteCount').textContent='（'+f.length+'）';}
-      function toggleFavorite(item){var f=favorites(),key=keyOf(item),index=f.indexOf(key);if(index>=0){f.splice(index,1);}else{f.push(key);}writeStore(FAV_KEY,f);refreshFavorites();applyFilters();}
-      function trackRecent(item){var list=readStore(RECENT_KEY),key=keyOf(item),index=list.indexOf(key);if(index>=0){list.splice(index,1);}list.unshift(key);writeStore(RECENT_KEY,list.slice(0,6));renderRecent();}
-      function activateItem(item){trackRecent(item);if(item.querySelector('.file-copy')){copyText(item.dataset.url).then(function(){showToast('クリップボードにコピーしました。Windowsキー＋Rを押して貼り付け、Enterしてください。',2000);}).catch(function(){showToast('コピーできませんでした。Excelからパスをコピーしてください。',2500);});}else{window.open(item.dataset.url,'_blank','noopener');}}
-      function renderRecent(){var area=document.getElementById('recent'),box=document.getElementById('recentList'),keys=readStore(RECENT_KEY);if(isIPhone){box.innerHTML='';area.hidden=true;return;}box.innerHTML='';keys.forEach(function(key){var item=items.find(function(x){return keyOf(x)===key;});if(!item){return;}var b=document.createElement('button');b.type='button';b.className='recent-chip';b.textContent=item.dataset.title;b.title=item.dataset.note||item.dataset.url;b.addEventListener('click',function(){activateItem(item);});box.appendChild(b);});area.hidden=!box.children.length;}
-      function setFilter(value){activeFilter=value;document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.filter===value);});applyFilters();}
-      function applyFilters(){
-        var keyword=q.value.trim().toLowerCase(),shown=0,f=favorites();
-        var categoryColumns=document.getElementById('categoryColumns');
-        var isSingleCategory=activeFilter!=='__all__'&&activeFilter!=='__favorites__';
-        var availableTotal=items.filter(function(item){return !isIPhone||item.dataset.type!=='file';}).length;
-        categoryColumns.classList.toggle('single-category',isSingleCategory);
-        items.forEach(function(item){
-          var text=(item.dataset.title+' '+item.dataset.url+' '+item.dataset.category+' '+item.dataset.note).toLowerCase();
-          var categoryOk=activeFilter==='__all__'||(activeFilter==='__favorites__'?f.indexOf(keyOf(item))>=0:item.dataset.category===activeFilter);
-          var typeOk=activeType==='all'||item.dataset.type===activeType;
-          var deviceOk=!isIPhone||item.dataset.type!=='file';
-          var show=categoryOk&&typeOk&&deviceOk&&text.indexOf(keyword)>=0;
-          item.style.display=show?'':'none';
-          if(show){shown++;}
-        });
-        document.querySelectorAll('.category-section').forEach(function(section){
-          section.style.display=Array.from(section.querySelectorAll('.link-item')).some(function(item){return item.style.display!=='none';})?'':'none';
-        });
-        document.getElementById('resultCount').textContent='表示中：'+shown+'／'+availableTotal+'件';
-        document.getElementById('empty').style.display=shown?'none':'block';
-      }
-      document.querySelectorAll('.filter-btn').forEach(function(b){b.addEventListener('click',function(){var value=this.dataset.filter;if(value===activeFilter&&value!=='__all__'){value='__all__';}setFilter(value);});});
-      document.getElementById('clearBtn').addEventListener('click',function(){q.value='';activeType='all';document.querySelectorAll('.type-btn').forEach(function(b){b.classList.toggle('active',b.dataset.type==='all');});setFilter('__all__');q.focus();});
-      document.querySelectorAll('.type-btn').forEach(function(b){b.addEventListener('click',function(){var value=this.dataset.type;if(value===activeType&&value!=='all'){value='all';}activeType=value;document.querySelectorAll('.type-btn').forEach(function(x){x.classList.toggle('active',x.dataset.type===activeType);});applyFilters();});});
-      q.addEventListener('input',applyFilters);
-      items.forEach(function(item){item.querySelector('.favorite-btn').addEventListener('click',function(e){e.preventDefault();e.stopPropagation();toggleFavorite(item);});var file=item.querySelector('.file-copy');if(file){file.addEventListener('click',function(){activateItem(item);});}else{item.querySelector('.web-link').addEventListener('click',function(){trackRecent(item);});}});
-      refreshFavorites();renderRecent();applyFilters();
     })();
   </script>
 </body>
